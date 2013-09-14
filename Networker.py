@@ -3,8 +3,8 @@ import socket
 class Networker():
 	def __init__(self):
 		# For now, just set whether you are the client or the server
-		role = "SERVER"
-		# role = "CLIENT"
+		# role = "SERVER"
+		role = "CLIENT"
 
 		port = 25000
 		
@@ -29,9 +29,8 @@ class Networker():
 			
 	def setupClient(self, destIP, port):
 		self.mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		mySocket.connect((destIP, port))
-		while 1:
-			print mySocket.read()
+		self.mySocket.connect((destIP, port))
+		print self.mySocket.recv(2)
 
 class ClientThread:
 	def __init__(self,socket):
