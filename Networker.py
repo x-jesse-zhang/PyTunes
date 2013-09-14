@@ -1,4 +1,5 @@
 import socket
+import time
 
 class Networker():
 	def __init__(self):
@@ -36,7 +37,7 @@ class Networker():
 
 class ClientThread:
 	def __init__(self,socket):
-		socket.send("HI")
+		socket.send(time.time() + 10)
 		print "finished"
 
 nt = Networker()
