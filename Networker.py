@@ -6,12 +6,14 @@ class Networker():
 		# role = "SERVER"
 		role = "CLIENT"
 
-		port = 25000
+		port = 50000
 		
 		if role == "SERVER":
 			self.setupServer(port)
 		else:
-			destIP = "172.16.168.190"
+			#destIP = "172.16.221.236"  #JESSE
+			#destIP = "172.16.158.84"   #SAM
+			#destIP = "172.16.168.190"  #STEPHEN
 			self.setupClient(destIP, port)
 
 	def setupServer(self, port):
