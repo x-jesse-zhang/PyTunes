@@ -1,24 +1,26 @@
 import socket
 
 class Networker():
-	def __init__():
+	def __init__(self):
 		# For now, just set whether you are the client or the server
-		# role = "SERVER"
-		role = "CLIENT"
+		role = "SERVER"
+		# role = "CLIENT"
 
 		port = 25000
 		
 		if role == "SERVER":
-			setupServer(port)
+			self.setupServer(port)
 		else:
 			destIP = "172.16.168.190"
-			setupClient(destIP, port)
+			self.setupClient(destIP, port)
 
 	def setupServer(self, port):
+		print "running server"
 		ip = socket.gethostbyname(socket.gethostname())
-		self.serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-		self.serversocket.bind(ip, port)
-		self.serversocket.listen(2)
+		serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		serversocket.bind((ip, port))
+		serversocket.listen(2)
+		print "got to listen"
 		while 1:
 			(clientsocket, address) = serversocket.accept()
 		    #now do something with the clientsocket
@@ -35,3 +37,5 @@ class ClientThread:
 	def __init__(socket):
 		while 1:
 			socket.send("HI")
+
+nt = Networker()
