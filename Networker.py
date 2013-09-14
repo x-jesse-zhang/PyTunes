@@ -25,7 +25,7 @@ class Networker():
 			(clientsocket, address) = serversocket.accept()
 		    #now do something with the clientsocket
 		    #in this case, we'll pretend this is a threaded server
-			ct = client_thread(clientsocket)
+			ct = ClientThread(clientsocket)
 			
 	def setupClient(self, destIP, port):
 		self.mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -34,8 +34,8 @@ class Networker():
 			print mySocket.read()
 
 class ClientThread:
-	def __init__(socket):
-		while 1:
-			socket.send("HI")
+	def __init__(self,socket):
+		socket.send("HI")
+		print "finished"
 
 nt = Networker()
