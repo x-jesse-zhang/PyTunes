@@ -3,15 +3,15 @@ import socket
 class Networker():
 	def __init__():
 		# For now, just set whether you are the client or the server
-		role = "SERVER"
-		# role = "CLIENT"
+		# role = "SERVER"
+		role = "CLIENT"
 
 		port = 25000
 		
 		if role == "SERVER":
 			setupServer(port)
 		else:
-			destIP = "172."
+			destIP = "172.16.168.190"
 			setupClient(destIP, port)
 
 	def setupServer(self, port):
@@ -23,8 +23,8 @@ class Networker():
 			(clientsocket, address) = serversocket.accept()
 		    #now do something with the clientsocket
 		    #in this case, we'll pretend this is a threaded server
-		    ct = client_thread(clientsocket)
-		    ct.run()
+			ct = client_thread(clientsocket)
+			ct.run()
 
 	def setupClient(self, destIP, port):
 		self.mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
